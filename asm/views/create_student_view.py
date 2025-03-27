@@ -1,9 +1,9 @@
 from asm.views import View
 
-class AddStudentView(View):
-    def handle_input(self, app):
+class CreateStudentView(View):
+    def show(self):
         try:
-            print("Add Student")
+            print("Create Student")
             name = input("Enter name: ")
             grades = []
 
@@ -24,12 +24,12 @@ class AddStudentView(View):
                 if input("Add another grade? (y/n): ") == "n":
                     break
 
-            app.controller.create(name, grades)
             print("Student added successfully!")
-            app.set_main_menu_view()
+
+            return name, grades
         except ValueError as e:
             print(e)
-            app.reset_view()
+            self.clear()
         except Exception as e:
             print(e)
-            app.reset_view()
+            self.clear()

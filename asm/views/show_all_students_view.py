@@ -1,10 +1,10 @@
 from asm.views import View
 
-class DisplayAllStudentsView(View):
-    def handle_input(self, app):
+class ShowAllStudentsView(View):
+    def show(self, *args):
         try:
-            print("Display All Students")
-            students = app.controller.read_all()
+            print("Show All Students")
+            students = args[0]
 
             if not students:
                 raise Exception("No students found!")
@@ -15,8 +15,6 @@ class DisplayAllStudentsView(View):
                     print(f"Score: {score}, Credit: {credit}")
                 print(f"GPA: {student.calculate_gpa()}")
                 print()
-
-            app.set_main_menu_view()
         except Exception as e:
             print(e)
-            app.reset_view()
+            self.clear()

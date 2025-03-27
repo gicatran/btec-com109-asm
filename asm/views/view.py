@@ -1,9 +1,10 @@
 import os
+from abc import abstractmethod
 
 class View:
-    def handle_input(self, app):
-        print()
+    def show(self, *args):
+        raise NotImplementedError
     
     def clear(self):
-        input("Press any key to continue...")
+        input("\nPress any key to continue...")
         os.system("cls")
