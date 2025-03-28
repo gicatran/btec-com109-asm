@@ -2,15 +2,19 @@ from asm.controllers import Controller
 from asm.models import StudentModel
 from asm.views import MainMenuView, CreateStudentView, ShowAllStudentsView
 
+
 class StudentController(Controller):
     def __init__(self, app):
         super().__init__(app, StudentModel(), MainMenuView())
 
     def handle_view(self):
         if isinstance(self.view, MainMenuView):
-            choice = self.view.show()
+            response = self.view.show()
 
-            match choice:
+            if not response:
+                return
+
+            match response:
                 case 1:
                     self.set_view(CreateStudentView())
                 case 2:
@@ -18,7 +22,13 @@ class StudentController(Controller):
                 case 3:
                     self.app.stop()
         elif isinstance(self.view, CreateStudentView):
-            name, grades = self.view.show()
+            response = self.view.show()
+
+            if not response:
+                return
+
+            name, grades = response
+
             student = StudentModel(name, grades)
             self.create(student)
 

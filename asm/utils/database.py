@@ -1,5 +1,6 @@
 from asm.models import StudentModel
 
+
 class Database:
     __data = {}
 
@@ -40,4 +41,9 @@ class Database:
 
     @classmethod
     def read_all(cls, table_name) -> list:
-        return cls.__data.get(table_name)
+        data = cls.__data.get(table_name)
+
+        if not data:
+            return []
+
+        return data
