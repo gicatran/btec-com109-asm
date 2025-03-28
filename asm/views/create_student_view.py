@@ -13,21 +13,24 @@ class CreateStudentView(View):
                 raise ValueError("Name cannot be empty!")
 
             while True:
+                course_name = input("Enter course name: ")
                 score = float(input("Enter score: "))
                 credit = float(input("Enter credit: "))
 
+                if not course_name:
+                    raise ValueError("Course name cannot be empty!")
                 if score < 0 or score > 10:
                     raise ValueError("Grade must be between 0 and 10!")
                 if credit <= 0:
                     raise ValueError("Credit must be greater than 0!")
 
-                grades.append((score, credit))
+                grades.append((course_name, score, credit))
 
-                if input("Add another grade? (y/n): ") == "n":
+                if input("Add another course? (y/n): ") == "n":
                     break
 
             self.print_divider()
-            print("Student added successfully!")
+            print("Student created successfully!")
             self.print_divider()
 
             return name, grades

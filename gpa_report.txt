@@ -1,0 +1,9 @@
+[students]
+Hoang,Math-9.5-3,Physics-7.0-3,Literature-10.0-3,Science-5.5-2
+Tu,Math-6.7-3,Physics-8.3-3,Literature-10.0-3,Science-3.0-2
+Linh,Math-8.0-3,Physics-7.5-3,Literature-9.0-3,Science-6.0-2
+An,Math-7.2-3,Physics-8.8-3,Literature-9.5-3,Science-5.0-2
+Bao,Math-6.0-3,Physics-7.5-3,Literature-8.2-3,Science-4.5-2
+Mai,Math-9.0-3,Physics-8.5-3,Literature-9.8-3,Science-7.0-2
+Phong,Math-5.5-3,Physics-6.2-3,Literature-7.0-3,Science-3.5-2
+Trang,Math-7.8-3,Physics-8.9-3,Literature-10.0-3,Science-6.5-2

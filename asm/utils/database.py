@@ -1,4 +1,5 @@
 from asm.models import StudentModel
+from asm.utils import Constants
 
 
 class Database:
@@ -7,7 +8,7 @@ class Database:
     @classmethod
     def load(cls):
         try:
-            with open("database.txt", "r") as file:
+            with open(Constants.DATA_FILE, "r") as file:
                 for line in file:
                     line = line.strip()
 
@@ -25,7 +26,7 @@ class Database:
     @classmethod
     def save(cls):
         try:
-            with open("database.txt", "w") as file:
+            with open(Constants.DATA_FILE, "w") as file:
                 for table in cls.__data:
                     file.write(f"[{table}]\n")
 
