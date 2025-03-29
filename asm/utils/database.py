@@ -39,6 +39,7 @@ class Database:
     def create(cls, table_name, value):
         cls.__data[table_name].append(value)
         cls.save()
+        cls.load()
 
     @classmethod
     def read_all(cls, table_name) -> list:

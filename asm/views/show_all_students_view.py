@@ -12,8 +12,8 @@ class ShowAllStudentsView(View):
                 raise Exception("No students found!")
 
             for student in students:
-                print(f"Name: {student.name}\n")
-                for course_name, score, credit in student.grades:
+                print(f"Name: {student.get_name()}\n")
+                for course_name, score, credit in student.get_grades():
                     print(
                         f"Course: {course_name}\n Score: {score}\n Credit: {credit}\n")
                 print(f"Final GPA: {student.calculate_gpa()}")

@@ -9,12 +9,12 @@ class StudentController(Controller):
 
     def handle_view(self):
         if isinstance(self.view, MainMenuView):
-            response = self.view.show()
+            choice = self.view.show()
 
-            if not response:
+            if not choice:
                 return
 
-            match response:
+            match choice:
                 case 1:
                     self.set_view(CreateStudentView())
                 case 2:
@@ -22,15 +22,13 @@ class StudentController(Controller):
                 case 3:
                     self.app.stop()
         elif isinstance(self.view, CreateStudentView):
-            response = self.view.show()
+            student = StudentModel()
+            created_student = self.view.show(student)
 
-            if not response:
+            if not created_student:
                 return
 
-            name, grades = response
-
-            student = StudentModel(name, grades)
-            self.create(student)
+            self.create(created_student)
 
             self.set_view(MainMenuView())
         elif isinstance(self.view, ShowAllStudentsView):

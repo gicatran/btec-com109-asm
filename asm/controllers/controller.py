@@ -19,7 +19,7 @@ class Controller():
         parsed_data = []
 
         for line in data:
-            parsed_data.append(self.model.parse_from_string(line))
+            parsed_data.append(self.model.__class__.parse_from_string(line))
 
         return parsed_data
 

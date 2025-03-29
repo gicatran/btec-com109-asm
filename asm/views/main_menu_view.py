@@ -14,11 +14,11 @@ class MainMenuView(View):
 
             if choice not in [1, 2, 3]:
                 raise ValueError("Invalid choice")
+            
+            return choice
         except ValueError as e:
             print(f"Error: {e}")
             self.clear()
         except Exception:
             print("Error: Invalid input!")
             self.clear()
-        finally:
-            return choice
