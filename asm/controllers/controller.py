@@ -28,4 +28,8 @@ class Controller():
         self.view.clear()
 
     def handle_view(self):
+        """
+            Handle the view logic. This method should be overridden in subclasses.
+        """
+
         raise NotImplementedError

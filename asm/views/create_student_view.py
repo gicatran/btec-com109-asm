@@ -28,15 +28,15 @@ class CreateStudentView(View):
 
                 if input("Add another course? (y/n): ") == "n":
                     break
-
-            self.print_divider()
-            print("Student created successfully!")
-            self.print_divider()
-
-            return name, grades
         except ValueError as e:
             print(f"Error: {e}")
             self.clear()
         except Exception:
             print("Error: Invalid input!")
             self.clear()
+        finally:
+            self.print_divider()
+            print("Student created successfully!")
+            self.print_divider()
+
+            return name, grades
